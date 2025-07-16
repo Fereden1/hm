@@ -9,17 +9,13 @@ import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
     private val picturesList = listOf(
-        "https://loremflickr.com/800/500",
-        "https://loremflickr.com/801/500",
-        "https://loremflickr.com/802/500",
-        "https://loremflickr.com/803/500",
-        "https://loremflickr.com/804/500",
-        "https://loremflickr.com/805/500",
-        "https://loremflickr.com/806/500",
-        "https://loremflickr.com/807/500",
-        "https://loremflickr.com/808/500",
-        "https://loremflickr.com/809/500"
+        R.drawable.image1,
+        R.drawable.image2,
+        R.drawable.image3,
+        R.drawable.image4,
+        R.drawable.image5
     )
+
 
     private lateinit var imgRandom: ImageView
 
@@ -29,11 +25,12 @@ class MainActivity : AppCompatActivity() {
 
         imgRandom = findViewById(R.id.randomImage)
     }
-
+    //переход
     fun showRandomPicture(view: View) {
-        val url = picturesList.random()
-        Glide.with(this).load(url).into(imgRandom)
+        val imageResId = picturesList.random()
+        imgRandom.setImageResource(imageResId)
     }
+
 
     fun startNewActivity(view: View) {
         startActivity(Intent(this, SecondActivity::class.java))
