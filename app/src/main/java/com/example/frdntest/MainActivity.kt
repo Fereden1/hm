@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
-
-    // 10 ссылок
     private val picturesList = listOf(
         "https://loremflickr.com/800/500",
         "https://loremflickr.com/801/500",

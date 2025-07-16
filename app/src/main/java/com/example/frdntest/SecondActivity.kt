@@ -16,11 +16,9 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Отслеживаем изменения в полях и валидируем
         binding.emailInput.doAfterTextChanged { validateInputs() }
         binding.passwordInput.doAfterTextChanged { validateInputs() }
 
-        // Кнопка "Продолжить" — переход на третий экран
         binding.continueButton.setOnClickListener {
             val email = binding.emailInput.text.toString()
             val password = binding.passwordInput.text.toString()
@@ -32,16 +30,13 @@ class SecondActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Кнопка "Назад" — возвращение на MainActivity
         binding.button2.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        // Изначально кнопка недоступна, валидируем
         validateInputs()
     }
 
-    // Проверка валидности email и пароля
     private fun validateInputs() {
         val emailText = binding.emailInput.text.toString()
         val passwordText = binding.passwordInput.text.toString()
